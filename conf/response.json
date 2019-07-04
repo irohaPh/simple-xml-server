@@ -1,0 +1,26 @@
+[
+  {
+    "default": 1,
+    "response": "default.xm"
+  },
+  {
+    "path": "",
+    "match": "exact",
+    "response": "sample.xml"
+  },
+  {
+    "path": "exact-sample",
+    "match": "exact",
+    "response": "exact-sample.xml"
+  },
+  {
+    "path": "forward-sample",
+    "match": "forward",
+    "response": "forward-sample.xml"
+  },
+  {
+    "path": "backward-sample",
+    "match": "backward",
+    "response": "backward-sample.xml"
+  }
+]
