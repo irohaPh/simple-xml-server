@@ -4,7 +4,7 @@ const http = require('http');
 const server = http.createServer();
 
 const host = '127.0.0.1';
-const port = process.env.PORT || process.argv[2] || 8200;
+const port = process.env.NODE_PORT || process.argv[2] || 3000;
 
 server.on('request', function(req, res) {
   const { method, url } = req;
@@ -15,8 +15,8 @@ server.on('request', function(req, res) {
 
   let xmlFile = 'response/';
   switch (true) {
-    case /^\/hoge/.test(pathname):
-      xmlFile += 'hoge.xml';
+    case /^\/sample/.test(pathname):
+      xmlFile += 'sample.xml';
       break;
 
     default:
