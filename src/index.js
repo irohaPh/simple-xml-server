@@ -3,10 +3,11 @@ const urlParser = require('url');
 const http = require('http');
 const server = http.createServer();
 
-const host = '127.0.0.1';
+const host = process.env.NODE_HOST || '127.0.0.1';
 const port = process.env.NODE_PORT || process.argv[2] || 3000;
 
 const settings = require('../conf/response.json');
+const defaultSetting = settings.filter(s => s.default).shift();
 
 server.on('request', function(req, res) {
   const { method, url } = req;
@@ -18,16 +19,15 @@ server.on('request', function(req, res) {
   /* リクエストされたパスにマッチする設定を取得(見つからなければデフォルト設定を取得) */
   const matchSetting =
     settings
-      .filter(s => s.path !== undefined)
+      .filter(
+        s =>
+          Object.prototype.toString.call(s.path).slice(8, -1) === 'String' &&
+          s.path !== ''
+      )
       .filter(s => {
-        let reg = new RegExp(
-          (s.match === 'backward' ? '' : '^/') +
-            s.path +
-            (s.match === 'forward' ? '' : '$')
-        );
-        return pathname.match(reg);
+        return pathname.match(new RegExp(s.path));
       })
-      .shift() || settings.filter(s => s.default).shift();
+      .shift() || defaultSetting;
 
   /* 設定に応じたレスポンスの生成 */
   if (matchSetting) {

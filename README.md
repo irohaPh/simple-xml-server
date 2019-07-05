@@ -31,6 +31,5 @@ $ cross-env NODE_PORT=3333 npm start
 | 設定プロパティ | 必須 | デフォルト値 | 説明 |
 | :- | :-: | :-: | :- |
 | default | - | 0 | 1:マッチする設定が見つからなかった場合に使用する設定<br>※ 1を指定できるのは1つの設定のみ |
-| path | default=0 の場合 ○<br>default=1 の場合は任意 | - | 判定するパス |
-| match | default=0 の場合 ○<br>default=1 の場合は任意 | 'exact' | pathのマッチング方法<br>'exact': 完全一致<br>'forward': 前方一致<br>'backward': 後方一致 |
+| path | default=0 の場合 ○<br>default=1 の場合は任意 | - | 判定するパスを正規表現で指定する |
 | response | ○ | - | レスポンスファイルの名前<br>※ responseディレクトリ内にあるファイルから指定する |
