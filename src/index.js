@@ -38,6 +38,7 @@ server.on('request', function(req, res) {
       res.writeHead(200, { 'Content-Type': 'application/xml; charset=UTF-8' });
       res.write(fs.readFileSync(xmlFile, { encoding: 'utf-8' }));
     } catch (err) {
+      console.log(err);
       res.writeHead(500, { 'Content-Type': 'application/xml; charset=UTF-8' });
     }
   } else {
