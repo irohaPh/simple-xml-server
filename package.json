@@ -1,17 +1,24 @@
 {
   "name": "simple-xml-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Serves XML files when received HTTP request.",
   "scripts": {
     "start": "nodemon -e js,json src/index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "cross-env": "^5.2.0",
-    "nodemon": "^1.19.1"
+  "author": "irohaPh <photo.mana.shr@gmail.com> (https://github.com/irohaPh/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irohaPh/simple-xml-server"
   },
-  "dependencies": {}
+  "bugs": {
+    "url": "https://github.com/irohaPh/simple-xml-server/issues",
+    "email": "photo.mana.shr@gmail.com"
+  },
+  "homepage": "https://github.com/irohaPh/simple-xml-server#readme",
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "nodemon": "1.19.1"
+  }
 }
