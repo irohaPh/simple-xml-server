@@ -7,7 +7,7 @@ const host = process.env.NODE_HOST || '127.0.0.1';
 const port = process.env.NODE_PORT || process.argv[2] || 3000;
 
 const settings = require('../conf/response.json');
-const defaultSetting = settings.filter(s => s.default).shift();
+const defaultSetting = settings.find(s => s.default);
 
 server.on('request', function(req, res) {
   const { method, url } = req;
@@ -24,10 +24,9 @@ server.on('request', function(req, res) {
           Object.prototype.toString.call(s.path).slice(8, -1) === 'String' &&
           s.path !== ''
       )
-      .filter(s => {
+      .find(s => {
         return pathname.match(new RegExp(s.path));
-      })
-      .shift() || defaultSetting;
+      }) || defaultSetting;
 
   /* 設定に応じたレスポンスの生成 */
   if (matchSetting) {
